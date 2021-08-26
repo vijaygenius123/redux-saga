@@ -1,10 +1,19 @@
 import {Box, Button, Heading, Text, VStack} from "@chakra-ui/react";
 import {useSelector, useDispatch} from "react-redux";
 import {increment, decrement} from "./store/counter"
+import {useEffect} from "react";
+import {getUser} from "./store/user";
 
 function App() {
     const {count} = useSelector(state => state.counter)
+    const {user} = useSelector(state => state.user)
     const dispatch = useDispatch()
+
+    useEffect(()=> {
+        dispatch(getUser())
+    },[dispatch])
+
+    console.log(user)
 
   return (
    <VStack p={4}>
