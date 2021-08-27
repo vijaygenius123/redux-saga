@@ -26,6 +26,12 @@ function App() {
            <Button margin="2" onClick={() => dispatch(increment())}>+</Button>
            <Button margin="2" onClick={() => dispatch(decrement())}>-</Button>
        </Box>
+       <Box>
+           <Text fontSize="3xl">User : {user && user.name}</Text>
+       </Box>
+       <Box>
+           <Button margin="2" onClick={() => dispatch(getUser())}>Get User</Button>
+       </Box>
    </VStack>
   );
 }

@@ -6,7 +6,8 @@ export function* handleGetUser(){
     try{
         const response = yield call(requestGetUser)
         const {data} = response
-        yield put(setUser(data[0]))
+        const index = Math.ceil(Math.random() * (data.length - 1))
+        yield put(setUser(data[index]))
     } catch (err){
         console.log(err)
     }
